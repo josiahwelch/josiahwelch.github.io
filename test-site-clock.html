@@ -16,10 +16,27 @@
 				setInterval(displayTime, 1000); // Update every second
 				displayTime(); // Initial call to display time immediately
 			</script>
+		<form>
+			<input list="names" id="name_select">
+			<datalist id="names">
+				<option value="John Doe">
+				<option value="Jane Doe">
+				<option value="Johnny Appleseed">
+			</datalist>
+			<input type="button" onclick="update_names()" value="Select"><br>
+				<script>
+					function update_names() {
+						document.getElementById('name_out').value = document.getElementById('name_select').value;
+						document.getElementById('name_in').value = document.getElementById('name_select').value;
+					}
+				</script>
+		</form>
 		<form action="test-site-clock-in.html">
+			<input type="hidden" id="name_in" name="name_in">
 			<br><input type="submit" value="Clock in">
 		</form>
 		<form action="test-site-clock-out.html">
+			<input type="hidden" id="name_out" name="name_out">
 			<br><input type="submit" value="Clock out">
 		</form>
 	</body>
