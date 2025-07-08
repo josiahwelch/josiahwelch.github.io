@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MwRSF Visitor Clock in</title>
+	</head>
+	<body>
+		<h1>MwRSF Visitor Clock in</h1>
+			<script>
+				function getTimeDate() {
+					// Function to add a leading zero to single digit numbers
+					function addLeadingZero(number) {
+						return (number < 10 ? '0' : '') + number;
+					}
+
+					// Get the current date and time
+					const now = new Date();
+					const year = now.getFullYear();
+					const month = addLeadingZero(now.getMonth() + 1); // Months are zero-indexed
+					const day = addLeadingZero(now.getDate());
+					const hours = addLeadingZero(now.getHours());
+					const minutes = addLeadingZero(now.getMinutes());
+					const seconds = addLeadingZero(now.getSeconds());
+
+					// Format the datetime string in the format required by datetime-local input
+					const currentDatetime = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+
+					// Set the value of the datetime-local input to the current date and time
+					document.getElementById('datetime').value = currentDatetime;
+				}
+				setInterval(getTimeDate, 1000); // Update every second
+
+			</script>
+		<form action="test-site-clock-in.php">
+			<input type="datetime-local" id="datetime" name="datetime" readonly><br><br>
+			<input type="submit" value="Clock in">
+		</form>
+	</body>
+</html>
