@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>MwRSF Visitor Signin</title>
+		<title>MwRSF Visitor Sign in</title>
 	</head>
 
 	<body>
-		<h1>Login</h1>
-		<p>name</p>
+	    <h1>Current Time: <span id="current-time"></span></h1>
+		    <script>
+				function displayTime() {
+					const now = new Date();
+					const timeString = now.toLocaleTimeString();
+					document.getElementById('current-time').textContent = timeString;
+				}
+
+				setInterval(displayTime, 1000); // Update every second
+				displayTime(); // Initial call to display time immediately
+			</script>
+		<h1>MwRSF Visitor Sign in</h1>
+		<form action="test.php">
+			<label for="fname">First name:</label><br>
+		    <input type="text" id="fname" name="fname" required><br>
+			<label for="lname">Last name:</label><br>
+		    <input type="text" id="lname" name="lname" required><br>
+			<label for="nuid">NUID:</label><br>
+			<input type="text" id="nuid" name="nuid"><br>
+			<input type="submit" value="Submit">
+		</form>
 	</body>
 </html>
