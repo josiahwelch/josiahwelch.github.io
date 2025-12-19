@@ -1,0 +1,23 @@
+body {
+	font-family: sans-serif;
+	background-color: #DDDDDD;
+}
+
+h1 {
+	font-size: 42px;
+	font-style: italic;
+	color: #880000;
+}
+
+#main {
+	display: flex;
+	flex-direction: row;
+	align-items: top;
+	gap: 25px;
+}
+
+#top {
+	display: flex;
+	flex-direction: row;
+	gap: 50px;
+}
